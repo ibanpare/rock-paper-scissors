@@ -43,3 +43,15 @@ function playRound(playerSelection, computerSelection) {
         }
     } 
 }
+
+//bisogna far returnare qualcosa di utile per tenere i punteggi
+//game deve tenere il punteggio e dichiarare un vincitore alla fine mostrando il risultato alla fine di ogni round
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Pick one: paper, rock or scissors");
+        console.log(playerSelection);
+        console.log(playRound(playerSelection, getComputerChoice()));
+        console.log(i);
+     }
+} 
