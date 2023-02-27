@@ -15,43 +15,60 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase()
+    playerSelection = playerSelection.toLowerCase();
 
     if (playerSelection === "paper") {
         if (computerSelection === "paper") {
-            return("It's a tie!");
+            return("tie");
         }   else if (computerSelection === "rock") {
-              return("You win, paper beats rock!");
+              return("player wins");
         }   else if (computerSelection === "scissors") {
-              return("You lose, scissors cut paper! :(");
+            return("computer wins");
         }
     }  else if (playerSelection === "rock") {
         if (computerSelection === "paper") {
-            return("You lose, paper beats rock! :(");
+              return("computer wins");
         }   else if (computerSelection === "rock") {
-              return("It's a tie!");
+              return("tie");
         }   else if (computerSelection === "scissors") {
-              return("You win, rock breaks scissors!");
+              return("player wins");
         }
     }  else if (playerSelection === "scissors") {
         if (computerSelection === "paper") {
-            return("You win, scissors cut paper! :)");
+              return("player wins");
         }   else if (computerSelection === "rock") {
-              return("You lose, rock breaks scissors! :(");
+              return("computer wins");
         }   else if (computerSelection === "scissors") {
-              return("It's a tie!");
+              return("tie");
         }
     } 
 }
 
-//bisogna far returnare qualcosa di utile per tenere i punteggi
-//game deve tenere il punteggio e dichiarare un vincitore alla fine mostrando il risultato alla fine di ogni round
-
 function game() {
+
+    let playerPoints = 0;
+    let computerPoints = 0;
+
     for (let i = 0; i < 5; i++) {
         let playerSelection = prompt("Pick one: paper, rock or scissors");
-        console.log(playerSelection);
-        console.log(playRound(playerSelection, getComputerChoice()));
-        console.log(i);
+        let outcome;
+
+        outcome = playRound(playerSelection, getComputerChoice());
+
+        if (outcome === "computer wins") {
+            computerPoints++;
+        } else if (outcome === "player wins") {
+            playerPoints++;
+        }
+
+        console.log("Il punteggio è di " + playerPoints + " a " + computerPoints);
+     }
+
+     if (playerPoints > computerPoints) {
+        console.log("Hai vinto!");
+     } else if (playerPoints === computerPoints) {
+        console.log("Abbiamo un pareggio!");
+     } else {
+        console.log("Il computer vince!");
      }
 } 
