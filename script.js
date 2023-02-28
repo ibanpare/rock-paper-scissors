@@ -17,6 +17,8 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
 
+    console.log(`You chose ${playerSelection}, while the computer chose ${computerSelection}`);
+
     if (playerSelection === "paper") {
         if (computerSelection === "paper") {
             return("tie");
@@ -57,18 +59,21 @@ function game() {
 
         if (outcome === "computer wins") {
             computerPoints++;
+            console.log("Computer wins!");
         } else if (outcome === "player wins") {
             playerPoints++;
+            console.log("You win!");
         }
 
-        console.log("Il punteggio è di " + playerPoints + " a " + computerPoints);
+        console.log("The score is " + playerPoints + " - " + computerPoints);
+        console.log("***************");
      }
 
      if (playerPoints > computerPoints) {
-        console.log("Hai vinto!");
+        console.log("You won the game!");
      } else if (playerPoints === computerPoints) {
-        console.log("Abbiamo un pareggio!");
+        console.log("It's a tie!");
      } else {
-        console.log("Il computer vince!");
+        console.log("Computer wins the game!");
      }
 } 
