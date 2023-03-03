@@ -10,43 +10,47 @@ function getComputerChoice() {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
+function playRound() {
+
+    let computerSelection = getComputerChoice();
 
     console.log(`You chose ${playerSelection}, while the computer chose ${computerSelection}`);
 
     if (playerSelection === "paper") {
         if (computerSelection === "paper") {
-            return("tie");
+            console.log("tie");
         }   else if (computerSelection === "rock") {
-              return("player wins");
+            console.log("player wins");
         }   else if (computerSelection === "scissors") {
-            return("computer wins");
+            console.log("computer wins");
         }
     }  else if (playerSelection === "rock") {
         if (computerSelection === "paper") {
-              return("computer wins");
+            console.log("computer wins");
         }   else if (computerSelection === "rock") {
-              return("tie");
+            console.log("tie");
         }   else if (computerSelection === "scissors") {
-              return("player wins");
+            console.log("player wins");
         }
     }  else if (playerSelection === "scissors") {
         if (computerSelection === "paper") {
-              return("player wins");
+            console.log("player wins");
         }   else if (computerSelection === "rock") {
-              return("computer wins");
+            console.log("computer wins");
         }   else if (computerSelection === "scissors") {
-              return("tie");
+            console.log("tie");
         }
     } 
 }
 
-function game() {
+function getPlayerSelection(e) {
+    playerSelection = e.target.id;
+};
+
+/* function game() {
 
     let playerPoints = 0;
     let computerPoints = 0;
-    let playerSelection = prompt("Pick one: paper, rock or scissors");
     let outcome = playRound(playerSelection, getComputerChoice());
 
     if (outcome === "computer wins") {
@@ -69,4 +73,8 @@ function game() {
      }
 }
 
+*/ 
+
 const uiSelection = document.querySelectorAll("button");
+uiSelection.forEach((button) => {button.addEventListener("click", getPlayerSelection)});
+uiSelection.forEach((button) => {button.addEventListener("click", playRound)});
