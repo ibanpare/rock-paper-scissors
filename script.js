@@ -1,16 +1,12 @@
 function getComputerChoice() {
     let randomChoice = Math.random()
 
-    switch(randomChoice > 0){
-        case randomChoice <= 0.33:
-            return "paper";
-            break;
-        case randomChoice > 0.33 && randomChoice <= 0.66:
-            return "scissors";
-            break;
-        case randomChoice > 0.66:
-            return "rock";
-            break;
+    if (randomChoice <= 0.33) {
+        return "paper";
+    } else if (randomChoice > 0.33 && randomChoice <= 0.66) {
+        return "scissors";
+    } else if (randomChoice > 0.66) {
+        return "rock";
     }
 }
 
@@ -50,24 +46,19 @@ function game() {
 
     let playerPoints = 0;
     let computerPoints = 0;
+    let playerSelection = prompt("Pick one: paper, rock or scissors");
+    let outcome = playRound(playerSelection, getComputerChoice());
 
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Pick one: paper, rock or scissors");
-        let outcome;
+    if (outcome === "computer wins") {
+        computerPoints++;
+        console.log("Computer wins!");
+    } else if (outcome === "player wins") {
+        playerPoints++;
+        console.log("You win!");
+    }
 
-        outcome = playRound(playerSelection, getComputerChoice());
-
-        if (outcome === "computer wins") {
-            computerPoints++;
-            console.log("Computer wins!");
-        } else if (outcome === "player wins") {
-            playerPoints++;
-            console.log("You win!");
-        }
-
-        console.log("The score is " + playerPoints + " - " + computerPoints);
-        console.log("***************");
-     }
+    console.log("The score is " + playerPoints + " - " + computerPoints);
+    console.log("***************");
 
      if (playerPoints > computerPoints) {
         console.log("You won the game!");
@@ -76,4 +67,4 @@ function game() {
      } else {
         console.log("Computer wins the game!");
      }
-} 
+}
