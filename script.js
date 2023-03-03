@@ -68,3 +68,5 @@ function game() {
         console.log("Computer wins the game!");
      }
 }
+
+const uiSelection = document.querySelectorAll("button");
