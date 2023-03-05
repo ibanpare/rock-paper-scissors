@@ -1,3 +1,9 @@
+const resultDiv = document.querySelector("#result p")
+
+const uiSelection = document.querySelectorAll("button");
+uiSelection.forEach((button) => {button.addEventListener("click", getPlayerSelection)});
+uiSelection.forEach((button) => {button.addEventListener("click", playRound)});
+
 function getComputerChoice() {
     let randomChoice = Math.random()
 
@@ -10,71 +16,39 @@ function getComputerChoice() {
     }
 }
 
-function playRound() {
-
-    let computerSelection = getComputerChoice();
-
-    console.log(`You chose ${playerSelection}, while the computer chose ${computerSelection}`);
-
-    if (playerSelection === "paper") {
-        if (computerSelection === "paper") {
-            console.log("tie");
-        }   else if (computerSelection === "rock") {
-            console.log("player wins");
-        }   else if (computerSelection === "scissors") {
-            console.log("computer wins");
-        }
-    }  else if (playerSelection === "rock") {
-        if (computerSelection === "paper") {
-            console.log("computer wins");
-        }   else if (computerSelection === "rock") {
-            console.log("tie");
-        }   else if (computerSelection === "scissors") {
-            console.log("player wins");
-        }
-    }  else if (playerSelection === "scissors") {
-        if (computerSelection === "paper") {
-            console.log("player wins");
-        }   else if (computerSelection === "rock") {
-            console.log("computer wins");
-        }   else if (computerSelection === "scissors") {
-            console.log("tie");
-        }
-    } 
-}
-
 function getPlayerSelection(e) {
     playerSelection = e.target.id;
 };
 
-/* function game() {
+function playRound() {
 
-    let playerPoints = 0;
-    let computerPoints = 0;
-    let outcome = playRound(playerSelection, getComputerChoice());
+    let computerSelection = getComputerChoice();
 
-    if (outcome === "computer wins") {
-        computerPoints++;
-        console.log("Computer wins!");
-    } else if (outcome === "player wins") {
-        playerPoints++;
-        console.log("You win!");
-    }
+    resultDiv.textContent += (`You chose ${playerSelection}, while the computer chose ${computerSelection}\n`);
 
-    console.log("The score is " + playerPoints + " - " + computerPoints);
-    console.log("***************");
-
-     if (playerPoints > computerPoints) {
-        console.log("You won the game!");
-     } else if (playerPoints === computerPoints) {
-        console.log("It's a tie!");
-     } else {
-        console.log("Computer wins the game!");
-     }
+    if (playerSelection === "paper") {
+        if (computerSelection === "paper") {
+            resultDiv.textContent += ("tie\n");
+        }   else if (computerSelection === "rock") {
+            resultDiv.textContent += ("player wins\n");
+        }   else if (computerSelection === "scissors") {
+            resultDiv.textContent += ("computer wins\n");
+        }
+    }  else if (playerSelection === "rock") {
+        if (computerSelection === "paper") {
+            resultDiv.textContent += ("computer wins\n");
+        }   else if (computerSelection === "rock") {
+            resultDiv.textContent += ("tie\n");
+        }   else if (computerSelection === "scissors") {
+            resultDiv.textContent += ("player wins\n");
+        }
+    }  else if (playerSelection === "scissors") {
+        if (computerSelection === "paper") {
+            resultDiv.textContent += ("player wins\n");
+        }   else if (computerSelection === "rock") {
+            resultDiv.textContent += ("computer wins\n");
+        }   else if (computerSelection === "scissors") {
+            resultDiv.textContent += ("tie\n");
+        }
+    } 
 }
-
-*/ 
-
-const uiSelection = document.querySelectorAll("button");
-uiSelection.forEach((button) => {button.addEventListener("click", getPlayerSelection)});
-uiSelection.forEach((button) => {button.addEventListener("click", playRound)});

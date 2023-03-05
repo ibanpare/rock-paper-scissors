@@ -1,0 +1,24 @@
+#result p {
+    white-space: pre-line;
+}
+
+button#scissors {
+    background-image: url("https://lh3.googleusercontent.com/TPRZaXYp3rv1em4btK9hR-GlJncMD1uRdbi6OPdv6RyCX-RxJ-Vg1h8qymLd52itSCmB1gqn1y4iUTyEytGUyCc7uUtwrO6YGMs=s400");
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+}
+
+button#paper {
+    background-image: url("https://static.vecteezy.com/system/resources/previews/011/185/391/original/pixel-art-style-old-videogames-style-retro-style-18-bit-toilet-paper-vector.jpg");
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+}
+
+button#rock {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUVPqpywHPu_Se_jTA7MqTTLl1oVKZalJzsw&usqp=CAU");
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+}
