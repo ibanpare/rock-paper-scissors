@@ -25,6 +25,9 @@ function getPlayerSelection(e) {
 function playerWins() {
     resultDiv.textContent += ("player wins\n");
     playerScore += 1;
+    if (playerScore === 5) {
+        resultDiv.textContent += `Congrats PLAYER_NAME, you won!\n`;
+    }
 };
 
 function tie() {
@@ -35,6 +38,9 @@ function tie() {
 function computerWins() {
     resultDiv.textContent += ("computer wins\n");
     computerScore += 1;
+    if (computerScore === 5) {
+        resultDiv.textContent += `I'm sorry PLAYER_NAME, computer won!\n`;
+    };    
 };
 
 function printScore() {
@@ -82,5 +88,3 @@ function play() {
         }
     } 
 }
-
-
