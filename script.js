@@ -27,6 +27,8 @@ function playerWins() {
     playerScore += 1;
     if (playerScore === 5) {
         resultDiv.textContent += `Congrats PLAYER_NAME, you won!\n`;
+        computerScore = 0;
+        playerScore = 0;
     }
 };
 
@@ -37,17 +39,22 @@ function tie() {
 
 function computerWins() {
     resultDiv.textContent += ("computer wins\n");
-    computerScore += 1;
-    if (computerScore === 5) {
-        resultDiv.textContent += `I'm sorry PLAYER_NAME, computer won!\n`;
-    };    
+    computerScore += 1;  
 };
 
 function printScore() {
     resultDiv.textContent += (`The score is now ${playerScore} - ${computerScore} for the player.\n`);
+
+    if (computerScore === 5) {
+        resultDiv.textContent += `I'm sorry PLAYER_NAME, computer won!\n`;
+        playerScore = 0;
+        computerScore = 0;
+    };  
 };
 
 function play() {
+
+    resultDiv.textContent = "";
 
     let computerSelection = getComputerChoice();
 
@@ -88,3 +95,6 @@ function play() {
         }
     } 
 }
+
+// I think we need abudant refactoring here. Metterei un check per lo score anche in altri punti per miglorare i messaggi
+// serve anche un reset finale
