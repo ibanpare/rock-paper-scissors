@@ -23,22 +23,19 @@ function getPlayerSelection(e) {
 };
 
 function playerWins() {
-    resultDiv.textContent += ("player wins\n");
+    resultDiv.textContent += ("You win this round.\n");
+    resultDiv.textContent += (`******************************************************************************\n`);
     playerScore += 1;
-    if (playerScore === 5) {
-        resultDiv.textContent += `Congrats PLAYER_NAME, you won!\n`;
-        computerScore = 0;
-        playerScore = 0;
-    }
 };
 
 function tie() {
-    resultDiv.textContent += ("It's a tie\n");
-
+    resultDiv.textContent += ("It's a tie.\n");
+    resultDiv.textContent += (`******************************************************************************\n`);
 };
 
 function computerWins() {
-    resultDiv.textContent += ("computer wins\n");
+    resultDiv.textContent += ("Computer wins this round.\n");
+    resultDiv.textContent += (`******************************************************************************\n`);
     computerScore += 1;  
 };
 
@@ -49,7 +46,11 @@ function printScore() {
         resultDiv.textContent += `I'm sorry PLAYER_NAME, computer won!\n`;
         playerScore = 0;
         computerScore = 0;
-    };  
+    } else if (playerScore === 5) {
+            resultDiv.textContent += `Congrats PLAYER_NAME, you won!\n`;
+            computerScore = 0;
+            playerScore = 0;
+    }
 };
 
 function play() {
@@ -58,7 +59,8 @@ function play() {
 
     let computerSelection = getComputerChoice();
 
-    resultDiv.textContent += (`You chose ${playerSelection}, while the computer chose ${computerSelection}\n`);
+    resultDiv.textContent += (`You chose ${playerSelection}, while the computer chose ${computerSelection}.\n`);
+    resultDiv.textContent += (`******************************************************************************\n`);
 
     if (playerSelection === "paper") {
         if (computerSelection === "paper") {
