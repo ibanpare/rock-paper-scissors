@@ -1,25 +1,32 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    font-family: Helvetica, sans-serif;
+}
+
 #result,#score p {
     white-space: pre-line;
 }
 
-button#scissors {
-    background-image: url("https://content.instructables.com/F0X/OKY4/KPR7VNM1/F0XOKY4KPR7VNM1.png?auto=webp&frame=1&fit=bounds&md=b8fa0926cb9d8481fe3ffec696317907");
+button {
     background-size: cover;
     width: 200px;
     height: 200px;
+    margin: 50px 5px;
+}
+
+button#scissors {
+    background-image: url("https://content.instructables.com/F0X/OKY4/KPR7VNM1/F0XOKY4KPR7VNM1.png?auto=webp&frame=1&fit=bounds&md=b8fa0926cb9d8481fe3ffec696317907");
+
 }
 
 button#paper {
     background-image: url("https://content.instructables.com/FU5/DSZM/KPR7VNLZ/FU5DSZMKPR7VNLZ.png?auto=webp&frame=1&fit=bounds&md=a1014067e718c71e778700884332bfd0");
-    background-size: cover;
-    width: 200px;
-    height: 200px;
 }
 
 button#rock {
     background-image: url("https://content.instructables.com/FDZ/CSPR/KPR7VNM0/FDZCSPRKPR7VNM0.png?auto=webp&frame=1&width=401&fit=bounds&md=b8fa0926cb9d8481fe3ffec696317907");
-    background-size: cover;
     background-position: center;
-    width: 200px;
-    height: 200px;
 }
