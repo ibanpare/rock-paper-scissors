@@ -1,4 +1,5 @@
 const resultDiv = document.querySelector("#result p")
+const scoreDiv = document.querySelector("#score p")
 const uiSelection = document.querySelectorAll("button");
 let playerScore = 0;
 let computerScore = 0;
@@ -21,19 +22,23 @@ function getPlayerSelection(e) {
     playerSelection = e.target.id;
 };
 
-function playerWins () {
+function playerWins() {
     resultDiv.textContent += ("player wins\n");
     playerScore += 1;
 };
 
-function tie () {
+function tie() {
     resultDiv.textContent += ("It's a tie\n");
 
 };
 
-function computerWins () {
+function computerWins() {
     resultDiv.textContent += ("computer wins\n");
     computerScore += 1;
+};
+
+function printScore() {
+    resultDiv.textContent += (`The score is now ${playerScore} - ${computerScore} for the player.\n`);
 };
 
 function play() {
@@ -45,26 +50,37 @@ function play() {
     if (playerSelection === "paper") {
         if (computerSelection === "paper") {
             tie();
+            printScore();
         }   else if (computerSelection === "rock") {
                 playerWins();
+                printScore();
         }   else if (computerSelection === "scissors") {
                 computerWins();
+                printScore();
         }
     }  else if (playerSelection === "rock") {
         if (computerSelection === "paper") {
             computerWins();
+            printScore();
         }   else if (computerSelection === "rock") {
-            tie();
+                tie();
+                printScore();
         }   else if (computerSelection === "scissors") {
-            playerWins();
+                playerWins();
+                printScore();
         }
     }  else if (playerSelection === "scissors") {
         if (computerSelection === "paper") {
             playerWins();
+            printScore();
         }   else if (computerSelection === "rock") {
-            computerWins();
+                computerWins();
+                printScore();
         }   else if (computerSelection === "scissors") {
-            tie();
+                tie();
+                printScore();
         }
     } 
 }
+
+
