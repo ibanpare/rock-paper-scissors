@@ -8,11 +8,11 @@ let computerScore = 0;
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 100);
     if (choice <= 33) {
-        return "Paper";
+        return "paper";
     } else if (choice > 66) {
-        return "Rock";
+        return "rock";
     } else {
-        return "Scissors";
+        return "scissors";
     }
 }
 
