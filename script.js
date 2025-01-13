@@ -36,50 +36,54 @@ function playRound(computerChoice, userChoice) {
   if (computerChoice === "rock") {
     if (userChoice === "scissors") {
       computerScore += 1;
-      alert(
+      console.log(
         `Computer picked ${computerChoice}. Rock beats scissors. Computer wins!`
       );
     } else if (userChoice === "paper") {
       humanScore += 1;
-      alert(`Computer picked ${computerChoice}. Paper beats rock. You win!`);
+      console.log(`Computer picked ${computerChoice}. Paper beats rock. You win!`);
     } else {
-      alert("It's a tie!");
+        console.log("It's a tie!");
     }
   }
 
   if (computerChoice === "paper") {
     if (userChoice === "rock") {
       computerScore += 1;
-      alert(
+      console.log(
         `Computer picked ${computerChoice}. Paper beats rock. Computer wins!`
       );
     } else if (userChoice === "scissors") {
       humanScore += 1;
-      alert(
+      console.log(
         `Computer picked ${computerChoice}. Scissors beats paper. You win!`
       );
     } else {
-      alert("It's a tie!");
+        console.log("It's a tie!");
     }
   }
 
   if (computerChoice === "scissors") {
     if (userChoice === "paper") {
       computerScore += 1;
-      alert(
+      console.log(
         `Computer picked ${computerChoice}. Scissors beats paper. Computer wins!`
       );
     } else if (userChoice === "rock") {
       humanScore += 1;
-      alert(`Computer picked ${computerChoice}. Rock beats scissors. You win!`);
+      console.log(`Computer picked ${computerChoice}. Rock beats scissors. You win!`);
     } else {
-      alert("It's a tie!");
+        console.log("It's a tie!");
     }
   }
 }
 
-for (let round = 1; round < 6; round++) {
-  alert(`We are at round ${round}`);
-  playRound(getComputerChoice(), getHumanChoice());
-  alert(`The score so far is ${humanScore} - ${computerScore} for you.`);
-}
+const rockBtn = document.querySelector("#rock");
+rockBtn.addEventListener("click", () => playRound(getComputerChoice(),"rock"));
+
+const paperBtn = document.querySelector("#paper")
+paperBtn.addEventListener("click", () => playRound(getComputerChoice(),"paper"));
+
+const scissorsBtn = document.querySelector("#scissors")
+scissorsBtn.addEventListener("click", () => playRound(getComputerChoice(),"scissors"));
+
