@@ -36,44 +36,40 @@ function playRound(computerChoice, userChoice) {
   if (computerChoice === "rock") {
     if (userChoice === "scissors") {
       computerScore += 1;
-      console.log(
+      resultsPara.textContent =
         `Computer picked ${computerChoice}. Rock beats scissors. Computer wins!`
-      );
+      ;
     } else if (userChoice === "paper") {
       humanScore += 1;
-      console.log(`Computer picked ${computerChoice}. Paper beats rock. You win!`);
+      resultsPara.textContent =`Computer picked ${computerChoice}. Paper beats rock. You win!`;
     } else {
-        console.log("It's a tie!");
+        resultsPara.textContent ="It's a tie!";
     }
   }
 
   if (computerChoice === "paper") {
     if (userChoice === "rock") {
       computerScore += 1;
-      console.log(
-        `Computer picked ${computerChoice}. Paper beats rock. Computer wins!`
-      );
+      resultsPara.textContent = `Computer picked ${computerChoice}. Paper beats rock. Computer wins!`;
     } else if (userChoice === "scissors") {
       humanScore += 1;
-      console.log(
-        `Computer picked ${computerChoice}. Scissors beats paper. You win!`
-      );
+      resultsPara.textContent = `Computer picked ${computerChoice}. Scissors beats paper. You win!`;
     } else {
-        console.log("It's a tie!");
+        resultsPara.textContent = "It's a tie!";
     }
   }
 
   if (computerChoice === "scissors") {
     if (userChoice === "paper") {
       computerScore += 1;
-      console.log(
+      resultsPara.textContent =
         `Computer picked ${computerChoice}. Scissors beats paper. Computer wins!`
-      );
+      ;
     } else if (userChoice === "rock") {
       humanScore += 1;
-      console.log(`Computer picked ${computerChoice}. Rock beats scissors. You win!`);
+      resultsPara.textContent =`Computer picked ${computerChoice}. Rock beats scissors. You win!`;
     } else {
-        console.log("It's a tie!");
+        resultsPara.textContent ="It's a tie!";
     }
   }
 }
@@ -87,3 +83,4 @@ paperBtn.addEventListener("click", () => playRound(getComputerChoice(),"paper"))
 const scissorsBtn = document.querySelector("#scissors")
 scissorsBtn.addEventListener("click", () => playRound(getComputerChoice(),"scissors"));
 
+const resultsPara = document.querySelector("#resultsPara");
