@@ -98,7 +98,7 @@ function updateScore() {
         humanScore = 0;
         computerScore = 0;
     } else if (computerScore === 5) {
-        scorePara.textContent = `You: ${humanScore} \nComputer: ${computerScore}
+        scorePara.innerText = `You: ${humanScore} \nComputer: ${computerScore}
         \nGame Over.
         \nComputer wins!
         `
