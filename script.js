@@ -84,3 +84,6 @@ const scissorsBtn = document.querySelector("#scissors")
 scissorsBtn.addEventListener("click", () => playRound(getComputerChoice(),"scissors"));
 
 const resultsPara = document.querySelector("#resultsPara");
+
+const scorePara = document.querySelector("#scorePara");
+scorePara.textContent = `You: ${humanScore} - Computer: ${computerScore}`
