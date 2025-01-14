@@ -72,6 +72,7 @@ function playRound(computerChoice, userChoice) {
         resultsPara.textContent ="It's a tie!";
     }
   }
+  updateScore();
 }
 
 const rockBtn = document.querySelector("#rock");
@@ -86,4 +87,25 @@ scissorsBtn.addEventListener("click", () => playRound(getComputerChoice(),"sciss
 const resultsPara = document.querySelector("#resultsPara");
 
 const scorePara = document.querySelector("#scorePara");
-scorePara.textContent = `You: ${humanScore} - Computer: ${computerScore}`
+
+function updateScore() {
+    if(humanScore === 5) {
+        scorePara.innerText = `You: ${humanScore} \nComputer: ${computerScore}
+        \nGame Over.
+        \nYou win!
+        `
+        
+        humanScore = 0;
+        computerScore = 0;
+    } else if (computerScore === 5) {
+        scorePara.textContent = `You: ${humanScore} \nComputer: ${computerScore}
+        \nGame Over.
+        \nComputer wins!
+        `
+        
+        humanScore = 0;
+        computerScore = 0;
+    } else {
+        scorePara.innerText = `You: ${humanScore} \nComputer: ${computerScore}`;
+    }
+}
